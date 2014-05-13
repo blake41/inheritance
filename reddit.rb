@@ -1,16 +1,19 @@
 require 'rest-client'
 require 'json'
 class Reddit
-  BASE_URL = 'http://www.reddit.com/r'
+
   def initialize(subreddit: 'all')
     @subreddit = subreddit
+    @base_url = 'http://www.reddit.com/r'
   end
 
-  def get_links
-    response = RestClient.get("#{BASE_URL}/#{@subreddit}.json")
-    parsed_response = JSON.parse(response)    
-    parsed_response["data"]["children"].map do |link|
-      yield link
-    end
+private
+  def parse_structure
+    self.response["data"]["children"]
   end
+
+  def construct_url
+    "#{@base_url}/#{@subreddit}.json"
+  end
+
 end

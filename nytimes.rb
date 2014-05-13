@@ -1,4 +1,6 @@
-
+require 'rest-client'
+require 'json'
+require_relative 'scraper'
 
 class Nytimes < Scraper
 

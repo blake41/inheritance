@@ -1,6 +1,8 @@
 require 'rest-client'
 require 'json'
-class Reddit
+require_relative 'scraper'
+
+class Reddit < Scraper
 
   def initialize(subreddit: 'all')
     @subreddit = subreddit

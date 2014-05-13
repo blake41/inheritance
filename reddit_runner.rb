@@ -1,5 +1,6 @@
 require_relative 'reddit'
 require_relative 'reddit_link'
+require_relative 'scraper'
 
 # reddit = Reddit.new(subreddit: 'reactiongifs')
 reddit = Reddit.new(subreddit: 'cinemagraphs')
